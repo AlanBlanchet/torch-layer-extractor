@@ -14,14 +14,30 @@ class ConvObserver(ModuleObserver):
     ----------
     `model` : nn.Module
         The model to watch for modules on
-
+    `watch` : str | list[str], default: []
+        A str or a list str conv modules to watch for
+    `limit` : int, default: -1
+        The limit number of convs to extract
     See also
     ----------
     ModuleObserver
     """
 
-    def __init__(self, model: nn.Module, *args, **kwargs) -> None:
-        super(ConvObserver, self).__init__(model, nn.Conv2d, *args, **kwargs)
+    def __init__(
+        self,
+        model: nn.Module,
+        watch: str | list[str] = [],
+        limit: int = -1,
+        *args,
+        **kwargs,
+    ) -> None:
+        super(ConvObserver, self).__init__(
+            model,
+            [nn.Conv2d, *(watch if isinstance(watch, list) else [watch])],
+            limit,
+            *args,
+            **kwargs,
+        )
 
     def __get_fig(self, output: torch.Tensor):
         """

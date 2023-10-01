@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "torchmo"
-version = "1.0.1"
+version = "1.0.2"
 description = "A torch observer that wraps around wanted pytorch modules"
 authors = ["Alan Blanchet <alan@alan-blanchet.fr>"]
 readme = "README.md"
