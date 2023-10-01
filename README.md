@@ -23,7 +23,7 @@ Extract features :
 ## Installation
 
 ```bash
-pip install torch-module-observer
+pip install torchmo
 ```
 
 This package also works with conda and poetry.

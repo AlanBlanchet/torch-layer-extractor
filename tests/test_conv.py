@@ -5,7 +5,7 @@ import torchvision.transforms.functional as F
 from PIL import Image
 
 
-img_p = Path(__file__).parents[1].resolve() / "dog.jpg"
+img_p = Path(__file__).parents[1].resolve() / "images/dog.jpg"
 
 
 def test_conv():
