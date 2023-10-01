@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "torchmo"
-version = "1.0.3"
+version = "1.0.4"
 description = "A torch observer that wraps around wanted pytorch modules"
 authors = ["Alan Blanchet <alan@alan-blanchet.fr>"]
 readme = "README.md"
@@ -11,7 +11,7 @@ packages = [{ include = "torchmo", from = "src/" }]
 [tool.poetry.dependencies]
 python = ">=3.9"
 torch = ">=1.3.0,!=2.0.1"
-tqdm = "^4.66.1"
+tqdm = "4.*"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
