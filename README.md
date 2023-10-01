@@ -55,3 +55,17 @@ for name, output in features:
     print(output.shape)
     break
 ```
+
+## Create your own
+
+All you need to do is to inherit the `ModuleObserver` class.
+
+See `ConvObserver` to see how to inherit and use.
+
+## Contribute
+
+The project is small and some peope may have other use cases.
+
+Poetry is being used to manage the environment.
+
+Feel free to open an [issue](https://github.com/AlanBlanchet/torch-module-observer/issues) and/or do a PR when you believe it would help the community.
