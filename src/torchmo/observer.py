@@ -75,6 +75,10 @@ class ModuleObserver(nn.Module):
             self.names_.append(name)
             self.handles.append(handle)
 
+    def __detach(self):
+        for h in self.handles:
+            h.remove()
+
     def __observe(self, module: nn.Module, input: torch.Tensor, output: torch.Tensor):
         self.outputs_.append(output)
 
@@ -97,3 +101,6 @@ class ModuleObserver(nn.Module):
 
     def __call__(self, *args) -> list[tuple[str, torch.Tensor]]:
         return self.forward(*args)
+
+    def __del__(self):
+        self.__detach()

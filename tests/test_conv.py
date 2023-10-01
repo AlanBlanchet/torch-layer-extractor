@@ -38,3 +38,13 @@ def test_valid_modules():
     observer = ConvObserver(model, watch=["conv1", "layer2.0.conv2"])
 
     assert len(list(observer(img_t.unsqueeze(dim=0)))) == 2
+
+
+def test_remove_hook():
+    observer = ConvObserver(model, watch="conv1")
+
+    del observer
+
+    for name, module in model.named_modules():
+        if name == "conv1":
+            assert len(module._forward_hooks_with_kwargs) == 0
