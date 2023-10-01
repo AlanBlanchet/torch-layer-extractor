@@ -3,7 +3,7 @@ import torch.nn as nn
 from itertools import islice
 
 
-class ModuleObserver(nn.Module):
+class ModuleObserver:
     """
     An observer class on a given module
 
