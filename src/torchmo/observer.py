@@ -23,7 +23,6 @@ class ModuleObserver:
         watch: list[nn.Module] | nn.Module | str | list[str] = [],
         limit: int = -1,
     ) -> None:
-        super(ModuleObserver, self).__init__()
         self.watch = watch if isinstance(watch, list) else [watch]
         self.limit = limit
         self.handles = []
@@ -80,7 +79,7 @@ class ModuleObserver:
             h.remove()
 
     def __observe(self, module: nn.Module, input: torch.Tensor, output: torch.Tensor):
-        self.outputs_.append(output)
+        self.outputs_.append(output.cpu())
 
     def outputs(self) -> list[torch.Tensor]:
         """

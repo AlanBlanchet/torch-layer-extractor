@@ -51,7 +51,7 @@ class ConvObserver(ModuleObserver):
         rows = int(C_f) if C_f == int(C_f) else int(C_f) + 1
         cols = int(C_f)
 
-        output = output.detach().to("cpu").numpy()
+        output = output.detach().numpy()
 
         fig, axs = plt.subplots(
             rows,
